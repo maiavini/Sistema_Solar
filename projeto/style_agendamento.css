@@ -1,0 +1,79 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, rgb(202, 97, 202), #6c25be) ;
+}
+
+.inputUser{
+    background: white;
+    border-radius: 5px;
+    font-size: 20px;
+    
+}
+
+fieldset{
+    position: relative;
+    left: 10%;
+    width: 50%;
+
+}
+
+select{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif, bold;
+}
+
+legend{
+    font-size: 50px;
+    color: rgb(15, 52, 88);
+}
+
+#submit{
+    background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+    width: 20%;
+    border: none;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+#submit:hover{
+    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195)); ;
+}
+
+button{
+    background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+    width: 20%;
+    border: none;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195)); ;
+}
+
+ul{
+    list-style-type: none;
+    margin: 10;
+    position: fixed;
+    vertical-align: top;
+}
+
+li{
+    cursor: pointer;
+}
+
+#nome{
+    width: 58%;
+}
+
+
+
+
+
