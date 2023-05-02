@@ -13,18 +13,26 @@
         $cep = $_POST['cep'];
         $idCidade_FK = $_POST['idCidade_FK'];
 
-        $result = mysqli_query($conexao, "INSERT INTO cliente(nome,cpf,telefone,rua,numero,complemento,cep,idEstado_FK) 
-        VALUES ('$nome','$cpf''$telefone','$rua','$numero','$complemento','$cep','$idEstado_FK')");
+        echo $nome;
+        echo $cpf;
+        echo $telefone;
+        echo $rua;
+        echo $numero;
+        echo $complemento;
+        echo $cep;
+        echo $idCidade_FK;
+      
 
-        if ($conexao->query($result) === TRUE) {
-            echo "Registro criado";
-        }else {
-            echo "Erro: " . $result . "<br>" . $conexao->error;
-        }
-    }
-    else
-    {
-        echo " No Post";
+        $result = mysqli_query($conexao, "INSERT INTO cliente(nome,cpf,telefone,rua,numero,complemento,cep,idCidade_FK) 
+        VALUES ('$nome','$cpf','$telefone','$rua','$numero','$complemento','$cep','$idCidade_FK')");
+
+        //if ($conexao->query($result) === TRUE) {
+            //echo "Registro criado";
+        //}else {
+            //echo "Erro: " . $result . "<br>" . $conexao->error;
+        //}
+
+       
     }
     
 ?>
@@ -111,9 +119,9 @@
                     $sql = "SELECT * FROM cidade"; 
     
                     $result = $conexao->query($sql);
-                    echo "<select name='idcidade_FK'>";
+                    echo "<select name='idCidade_FK'>";
                     while($user_data = mysqli_fetch_assoc($result)){
-                    echo "<option value-'".$user_data["idCidade"]."'>".$user_data["cidade"]."</option>";
+                    echo "<option value='".$user_data["idCidade"]."'>".$user_data["cidade"]."</option>";
                     }
                     echo "</select>";
                 ?>
@@ -131,4 +139,3 @@
     
 </body>
 </html>
-

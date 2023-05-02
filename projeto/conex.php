@@ -1,7 +1,7 @@
 <?php
     $dbhost='Localhost';
     $dbUsername = 'root';
-    $dbPassword = '12345';
+    $dbPassword = '';
     $dbName = 'bd-solar';
 
     $conexao = new mysqli($dbhost, $dbUsername, $dbPassword, $dbName);
@@ -12,7 +12,7 @@
      //}
      //else
      //{
-       // echo "Conexão estabelecida com sucesso!";
+        //echo "Conexão estabelecida com sucesso!";
      //}
 
 ?>
