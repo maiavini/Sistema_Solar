@@ -1,6 +1,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right, rgb(202, 97, 202), #6c25be) ;
+    background-image: linear-gradient(to right, rgb(202, 97, 202), #6c25be);
+    
 }
 
 .inputUser{
@@ -58,7 +59,8 @@ button{
 }
 
 button:hover{
-    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195)); ;
+    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+    
 }
 
 ul{
