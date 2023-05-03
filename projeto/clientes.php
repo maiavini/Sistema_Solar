@@ -13,15 +13,6 @@
         $cep = $_POST['cep'];
         $idCidade_FK = $_POST['idCidade_FK'];
 
-        echo $nome;
-        echo $cpf;
-        echo $telefone;
-        echo $rua;
-        echo $numero;
-        echo $complemento;
-        echo $cep;
-        echo $idCidade_FK;
-      
 
         $result = mysqli_query($conexao, "INSERT INTO cliente(nome,cpf,telefone,rua,numero,complemento,cep,idCidade_FK) 
         VALUES ('$nome','$cpf','$telefone','$rua','$numero','$complemento','$cep','$idCidade_FK')");
@@ -83,18 +74,7 @@
             <fieldset>
                 <legend><b>Clientes</b></legend>
                 <br>
-                <div class="inputbox">
-                    <input type="text" name="cpf" id="cpf" class="inputUser" placeholder="CPF" required>
-                    <label for="cpf" class="inputLabel"></label>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </div>
-                <br><br>
-                <div class="inputbox">
-                    <input type="text" name="nome" id="nome" class="inputUser" placeholder="Nome"required>
-                    <label for="nome" class="inputLabel"></label>
-                </div>
+                
                 <br><br>
                 <div class="inputbox">
                     <input type="tel" name="telefone" id="telefone" class="inputUser" placeholder="Telefone" required>

@@ -1,23 +1,24 @@
 <?php
-
+    include_once('conex.php');
     
 
     if(isset($_POST['submit']))
     
     {
-        include_once('conex.php');
-
-        $sql = "SELECT * FROM instalacao";
-
-        $resultado = $conexao->query($sql);
-
-         $data = $_POST['dataAg']; 
+         $idCliente_FK = $_POST['idCliente_FK'];   
+         $data_Agend = $_POST['data_Agend']; 
          $horaInicio = $_POST['horaInicio'];
          $horaFim = $_POST['horaFim'];
-         $estado = $_POST['estado'];
+         $status_Inst = $_POST['status_Inst'];
+        
+         echo $idCliente_FK;
+         echo $data_Agend;  
+         echo $horaInicio; 
+         echo $horaFim; 
+         echo $status_Inst;
 
-         $result = mysqli_query($conexao, "INSERT INTO instalacao(dataAg,horaInicio,horaFim,estado) 
-         VALUES ('$data','$horaInicio','$horaFim','$estado')");
+         $result = mysqli_query($conexao, "INSERT INTO instalacao(data_Agend,horaInicio,horaFim,status_Inst,idCliente_FK) 
+         VALUES ('$data_Agend','$horaInicio','$horaFim','$status_Inst','$idCliente_FK')");
          
     }
 
@@ -69,22 +70,23 @@
             <fieldset>
                 <legend><b>Agendamentos</b></legend>
                 <br>
-                <div class="inputbox">
-                    <input type="text" name="cpf" id="cpf" class="inputUser" placeholder="CPF" required>
-                    <label for="cpf" class="inputLabel"></label>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </div>
+                <?php
+                    include_once('conex.php');
+
+                    $sql = "SELECT * FROM cliente"; 
+    
+                    $result = $conexao->query($sql);
+                    echo "<select name='idCliente_FK'>";
+                    while($user_data = mysqli_fetch_assoc($result)){
+                    echo "<option value='".$user_data["idCliente"]."'>".$user_data["idCliente"]." - ".$user_data["nome"]."</option>";
+                    }
+                    echo "</select>";
+                ?>
+                
                 <br><br>
                 <div class="inputbox">
-                    <input type="text" name="nome" id="nome" class="inputUser" placeholder="Nome"required>
-                    <label for="nome" class="inputLabel"></label>
-                </div>
-                <br><br>
-                <div class="inputbox">
-                    <input type="date" name="dataAg" id="dataAg" class="inputUser" required>
-                    <label for="dataAg" class="inputLabel"></label>
+                    <input type="date" name="data_Agend" id="data_Agend" class="inputUser" required>
+                    <label for="data_Agend" class="inputLabel"></label>
                 </div>
                 <br><br>
                 <div class="inputbox">
@@ -97,7 +99,7 @@
                 </div>
                 <br><br>
                 <div>
-                    <select name="estado" required>
+                    <select name="status_Inst" required>
                         <option value="">Status</option>
                         <option value="pendente" >Pendente</option>
                         <option value="concluida">Concluída</option>
