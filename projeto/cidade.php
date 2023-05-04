@@ -1,11 +1,30 @@
 <?php
+    session_start();
 
+    include_once('conex.php');
+
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+    $logado = $_SESSION['email'];
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+    }
+    else
+    {
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    }
+    $result = $conexao->query($sql);
     
 
     if(isset($_POST['submit']))
     {
         
-        include_once('conex.php');
 
          $cidade = $_POST['cidade'];
          $idEstado_FK = $_POST['idEstado_FK'];
@@ -13,16 +32,6 @@
          $result = mysqli_query($conexao, "INSERT INTO cidade(cidade,idEstado_FK) 
          VALUES ('$cidade','$idEstado_FK')");
 
-        //if ($conexao->query($result) === TRUE) {
-            //echo "Registro criado";
-        //}else {
-            //echo "Erro: " . $result . "<br>" . $conexao->error;
-        //}
-
-    //}
-    //else 
-    //{
-    //echo "no post";
 
     }
     

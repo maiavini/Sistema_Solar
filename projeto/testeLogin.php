@@ -1,44 +1,41 @@
 <?php
+    session_start();
+    // print_r($_REQUEST);
+    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
+    {
+        // Acessa
+        include_once('conex.php');
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-print_r($_REQUEST);
-session_start();
+        print_r('Email: ' . $email);
+        print_r('<br>');
+        print_r('Senha: ' . $senha);
 
-if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
-{
-    //Acessa
-    include_once('conex.php');
-    $email=$_POST['email'];
-    $senha=$_POST['senha'];
+        $sql = "SELECT * FROM usuario WHERE email = '$email' and senha = '$senha'";
 
-    print_r('Email '. $email);
-    print_r('<br>');
-    print_r('Senha '. $senha);
+        $result = $conexao->query($sql);
 
-    $sql = "SELECT * FROM formulario WHERE email = '$email' AND senha = '$senha'";
+        //print_r($sql);
+        //print_r($result);
 
-    $result = $conexao->query($sql);
-
-    if (mysqli_num_rows($result) < 1) {
-        
-        unset($_SESSION['email']);
-        unset($_SESSION['senha']);
+        if(mysqli_num_rows($result) < 1)
+        {
+            unset($_SESSION['email']);
+            unset($_SESSION['senha']);
+            header('Location: login.php');
+            
+        }
+        else
+        {
+            $_SESSION['email'] = $email;
+            $_SESSION['senha'] = $senha;
+            header('Location: cidade.php');
+        }
+    }
+    else
+    {
+        //echo "Não acessa";
         header('Location: login.php');
     }
-    else 
-    {   
-        $_SESSION['email'] = $email;
-        $_SESSION['senha'] = $senha;
-        header('Location: sistema.php');    
-    }
-
-
-}
-else
-{
-    //Não Acessa
-    header('Location: login.php');
-}
-
-
-
 ?>
