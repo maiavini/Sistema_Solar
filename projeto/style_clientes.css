@@ -66,10 +66,12 @@ ul{
     margin: 10;
     position: fixed;
     vertical-align: top;
+    
 }
 
 li{
     cursor: pointer;
+    
 }
 
 #nome{

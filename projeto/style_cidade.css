@@ -11,13 +11,6 @@ body{
     
 }
 
-#numero{
-    width: 10%;
-}
-
-#rua{
-    width: 62%;
-}
 
 fieldset{
     position: relative;
@@ -80,4 +73,8 @@ li{
 
 .inputbox select{
     width: 80%;
+}
+
+a{
+    color: black;
 }
