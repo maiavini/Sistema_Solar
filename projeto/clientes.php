@@ -115,24 +115,24 @@
                 <input type="text" name="nome" id="nome" class="inputUser" placeholder="Nome" required>
                 <label for="nome" class="inputLabel"></label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputbox">
                     <input type="text" name="cpf" id="cpf" class="inputUser" placeholder="CPF" required>
                     <label for="cpf" class="inputLabel"></label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputbox">
                     <input type="tel" name="telefone" id="telefone" class="inputUser" placeholder="Telefone" required>
                     <label for="telefone" class="inputLabel"></label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputbox">
                     <input type="text" name="rua" id="rua" class="inputUser" placeholder="Logradouro" required>
                     <label for="rua" class="inputLabel">  </label>
                     <input type="text" name="numero" id="numero" class="inputUser" placeholder="Nº" required>
                     <label for="numero" class="inputLabel"> </label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputbox">
                     <input type="text" name="complemento" id="complemento" class="inputUser" placeholder="Complemento">
                     <label for="complemento" class="inputLabel"></label>
@@ -144,7 +144,7 @@
                     $sql = "SELECT * FROM cidade ORDER BY cidade ASC"; 
     
                     $result = $conexao->query($sql);
-                    echo "<select name='idCidade_FK'>";
+                    echo "<select name='idCidade_FK' class='inputUser'>";
                     while($user_data = mysqli_fetch_assoc($result)){
                     echo "<option value='".$user_data["idCidade"]."'>".$user_data["cidade"]."</option>";
                     }

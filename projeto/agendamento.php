@@ -118,7 +118,7 @@
                     <input type="date" name="data_Agend" id="data_Agend" class="inputUser" required>
                     <label for="data_Agend" class="inputLabel"></label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputbox">
                 <b>Início</b>    
                     <input type="time" name="horaInicio" id="horaInicio" class="inputUser" required>
@@ -127,7 +127,7 @@
                     <input type="time" name="horaFim" id="horaFim" class="inputUser" required>
                     <label for="horaFim" class="inputLabel"></label>
                 </div>
-                <br><br>
+                <br>
                 <div>
                     <select name="status_Inst" required>
                         <option value="">Status</option>

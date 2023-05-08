@@ -21,8 +21,10 @@
     }
     $result = $conexao->query($sql);
 
+    if(isset($_POST['submit']))
+    {
 
-
+    
     // Definindo as variáveis de entrada
     $consumo_medio = $_POST['consumo_med']; // kWh/mês
     $preco_energia = $_POST['preco_energia']; // R$/kWh
@@ -31,7 +33,6 @@
     $custo_disp = $_POST['custo_disp'];
     $imposto = $_POST['imposto'];
     $tx_iluminacao = $_POST['tx_iluminacao'];// R$
-    
 
     
 
@@ -58,9 +59,22 @@
     $economia_mensal = $preco_atual - $preco_solar - $imposto - $tx_iluminacao - $resultado;
 
 
-// Exibindo o resultado
-    echo "Com energia solar, você pode economizar R$" . number_format($economia_mensal, 2, ',', '.') . " por mês.";
 
+    
+// Exibindo o resultado
+    $economia_final = "Com energia solar, você pode economizar R$" . number_format($economia_mensal, 2, ',', '.') . " por mês.";
+
+    $sem_economia = "Lamentamos. Não haverá economia de energia.";
+
+    if($economia_mensal > 0){
+        echo "<script>alert('$economia_final');</script>";
+    }
+    else{
+        echo "<script>alert('$sem_economia');</script>";
+    }
+    
+
+}
     
 
 ?>
@@ -125,46 +139,62 @@
             <fieldset>
                 <legend><b>Economia</b></legend>
                 <br><br>
-                <div class="inputbox">
-                    Consumo Médio:
+                <div class="formulario">
+                    <div class="formulario">
+                    Consumo Médio
                     <input type="text" name="consumo_med" id="consumo_med" class="inputUser" placeholder="KWh"required>
-                    <label for="consumo_med" class="inputLabel"></label>
+                    <label for="consumo_med" class="inputUser"></label>
                     <br>
                     <p>
-                    Tarifa de Energia por KWh:
+                    </div>
+                    <div class="formulario">
+                    Tarifa de Energia por KWh:           
                     <input type="text" name="preco_energia" id="preco_energia" class="inputUser" placeholder="R$"required>
-                    <label for="preco_energia" class="inputLabel"></label>
+                    <label for="preco_energia"></label>
                     <br>
                     <p>
+                    </div>    
+                    <div class="formulario">
                     Capacidade de Produção Solar:   
                     <input type="text" name="capacidade_solar" id="capacidade_solar" class="inputUser" placeholder="KWh"required>
-                    <label for="capacidade_solar" class="inputLabel"></label>
+                    <label for="capacidade_solar"></label>
                     <br>
                     <p>
+                    </div>    
+                    <div class="formulario">
                     Instalação:
                     <input type="text" name="preco_instal" id="preco_instal" class="inputUser" placeholder="R$"required>
-                    <label for="preco_instal" class="inputLabel"></label>
+                    <label for="preco_instal" ></label>
                     <br>
                     <p>
+                    </div>    
+                    <div class="formulario">
                     Custo de Disponibilidade:
                     <input type="text" name="custo_disp" id="custo_disp" class="inputUser" placeholder="R$"required>
-                    <label for="custo_disp" class="inputLabel"></label>
+                    <label for="custo_disp"></label>
                     <br>
-                    <p>    
-                    Imposto:
+                    <p>   
+                    </div>     
+                    <div class="formulario">    
+                    Impostos:
                     <input type="text" name="imposto" id="imposto" class="inputUser" placeholder="R$"required>
-                    <label for="imposto" class="inputLabel"></label>
+                    <label for="imposto"></label>
                     <br>
                     <p>
+                    </div>
+                    <div class="formulario">    
                     Taxa Iluminiação Pública:
                     <input type="text" name="tx_iluminacao" id="tx_iluminacao" class="inputUser" placeholder="R$"required>
-                    <label for="tx_iluminacao" class="inputLabel"></label>
-                </div>
+                    <label for="tx_iluminacao"></label>
+                    </div>
+                    </div>
                 <br><br>
-                <button type="" name="calcular">Calcular</button>
+                <button type="submit" name="submit">Calcular</button>
+                <button type="reset">Limpar</button>
                 
             </fieldset>
         </form>
+
         
   
     

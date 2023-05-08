@@ -107,8 +107,8 @@
                 <br> 
                   
                 <div>
-                    <label for="idEstado_FK" class="inputLabel"></label>    
-                    <select  name="idEstado_FK" required>
+                    <label for="idEstado_FK" class="inputUser"></label>    
+                    <select  name="idEstado_FK" class="inputUser" required>
                         <option value="">Estado</option>
                         <option value="1" >Acre</option>
                         <option value="2">Alagoas</option>
