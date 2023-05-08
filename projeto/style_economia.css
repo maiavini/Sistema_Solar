@@ -23,13 +23,6 @@ legend{
     color: rgb(15, 52, 88);
 }
 
-#media_pag{
-    text-align: center;
-}
-
-#qntd_placas{
-    text-align: center;
-}
 
 button{
     background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
@@ -57,9 +50,7 @@ li{
     cursor: pointer;
 }
 
-#nome{
-    width: 58%;
-}
+
 
 
 

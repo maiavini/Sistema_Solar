@@ -20,6 +20,47 @@
         $sql = "SELECT * FROM usuarios ORDER BY id DESC";
     }
     $result = $conexao->query($sql);
+
+
+
+    // Definindo as variáveis de entrada
+    $consumo_medio = $_POST['consumo_med']; // kWh/mês
+    $preco_energia = $_POST['preco_energia']; // R$/kWh
+    $capacidade_solar = $_POST['capacidade_solar']; // kWh/mês
+    $preco_instalacao = $_POST['preco_instal'];
+    $custo_disp = $_POST['custo_disp'];
+    $imposto = $_POST['imposto'];
+    $tx_iluminacao = $_POST['tx_iluminacao'];// R$
+    
+
+    
+
+// Calculando o custo mensal atual da energia elétrica
+    $consumo_mensal = $consumo_medio;
+    $preco_atual = $consumo_mensal * $preco_energia;
+
+
+// Calculando o custo mensal com energia solar
+    $preco_solar = $preco_instalacao / (25 * 12) + ($consumo_medio - $capacidade_solar) * $preco_energia;
+
+    $tarifa_fiob = $preco_energia * 0.28;
+
+    $valor_fiob = $tarifa_fiob * $consumo_medio;
+
+    if($valor_fiob >= $custo_disp){
+
+        $resultado = $valor_fiob;
+    }
+    else{
+        $resultado = $custo_disp;
+    }
+// Calculando a economia mensal com energia solar
+    $economia_mensal = $preco_atual - $preco_solar - $imposto - $tx_iluminacao - $resultado;
+
+
+// Exibindo o resultado
+    echo "Com energia solar, você pode economizar R$" . number_format($economia_mensal, 2, ',', '.') . " por mês.";
+
     
 
 ?>
@@ -83,16 +124,41 @@
         <form action="economia.php" method="POST">
             <fieldset>
                 <legend><b>Economia</b></legend>
-                <br>
-                <div class="inputbox">
-                    
-                </div>
                 <br><br>
                 <div class="inputbox">
-                    <input type="text" name="media_pag" id="media_pag" class="inputUser" placeholder="Média Pagamaneto Mensal"required>
-                    <label for="media_pag" class="inputLabel"></label>
-                    <input type="text" name="qntd_placas" id="qntd_placas" class="inputUser" placeholder="Quantidade de Placas"required>
-                    <label for="qntd_placas" class="inputLabel"></label>
+                    Consumo Médio:
+                    <input type="text" name="consumo_med" id="consumo_med" class="inputUser" placeholder="KWh"required>
+                    <label for="consumo_med" class="inputLabel"></label>
+                    <br>
+                    <p>
+                    Tarifa de Energia por KWh:
+                    <input type="text" name="preco_energia" id="preco_energia" class="inputUser" placeholder="R$"required>
+                    <label for="preco_energia" class="inputLabel"></label>
+                    <br>
+                    <p>
+                    Capacidade de Produção Solar:   
+                    <input type="text" name="capacidade_solar" id="capacidade_solar" class="inputUser" placeholder="KWh"required>
+                    <label for="capacidade_solar" class="inputLabel"></label>
+                    <br>
+                    <p>
+                    Instalação:
+                    <input type="text" name="preco_instal" id="preco_instal" class="inputUser" placeholder="R$"required>
+                    <label for="preco_instal" class="inputLabel"></label>
+                    <br>
+                    <p>
+                    Custo de Disponibilidade:
+                    <input type="text" name="custo_disp" id="custo_disp" class="inputUser" placeholder="R$"required>
+                    <label for="custo_disp" class="inputLabel"></label>
+                    <br>
+                    <p>    
+                    Imposto:
+                    <input type="text" name="imposto" id="imposto" class="inputUser" placeholder="R$"required>
+                    <label for="imposto" class="inputLabel"></label>
+                    <br>
+                    <p>
+                    Taxa Iluminiação Pública:
+                    <input type="text" name="tx_iluminacao" id="tx_iluminacao" class="inputUser" placeholder="R$"required>
+                    <label for="tx_iluminacao" class="inputLabel"></label>
                 </div>
                 <br><br>
                 <button type="" name="calcular">Calcular</button>
