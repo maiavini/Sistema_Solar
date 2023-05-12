@@ -140,58 +140,48 @@
                 <legend><b>Economia</b></legend>
                 <br><br>
                 <div class="formulario">
-                    <div class="formulario">
+                    
                     Consumo Médio
                     <input type="text" name="consumo_med" id="consumo_med" class="inputUser" placeholder="KWh"required>
                     <label for="consumo_med" class="inputUser"></label>
-                    <br>
-                    <p>
-                    </div>
-                    <div class="formulario">
+                    
+                    
+                    <br><br>
                     Tarifa de Energia por KWh:           
                     <input type="text" name="preco_energia" id="preco_energia" class="inputUser" placeholder="R$"required>
                     <label for="preco_energia"></label>
-                    <br>
-                    <p>
-                    </div>    
-                    <div class="formulario">
+                    <br><br>
+                  
                     Capacidade de Produção Solar:   
                     <input type="text" name="capacidade_solar" id="capacidade_solar" class="inputUser" placeholder="KWh"required>
                     <label for="capacidade_solar"></label>
-                    <br>
-                    <p>
-                    </div>    
-                    <div class="formulario">
+                    <br><br>
+                    
                     Instalação:
                     <input type="text" name="preco_instal" id="preco_instal" class="inputUser" placeholder="R$"required>
                     <label for="preco_instal" ></label>
-                    <br>
-                    <p>
-                    </div>    
-                    <div class="formulario">
+                    <br><br>
+                    
                     Custo de Disponibilidade:
                     <input type="text" name="custo_disp" id="custo_disp" class="inputUser" placeholder="R$"required>
                     <label for="custo_disp"></label>
-                    <br>
-                    <p>   
-                    </div>     
-                    <div class="formulario">    
+                    <br><br>
+                       
                     Impostos:
                     <input type="text" name="imposto" id="imposto" class="inputUser" placeholder="R$"required>
                     <label for="imposto"></label>
-                    <br>
-                    <p>
-                    </div>
-                    <div class="formulario">    
+                    <br><br>
+                       
                     Taxa Iluminiação Pública:
                     <input type="text" name="tx_iluminacao" id="tx_iluminacao" class="inputUser" placeholder="R$"required>
                     <label for="tx_iluminacao"></label>
-                    </div>
-                    </div>
-                <br><br>
+                    
+                    <br><br>
+                        
                 <button type="submit" name="submit">Calcular</button>
                 <button type="reset">Limpar</button>
                 
+                </div>
             </fieldset>
         </form>
 

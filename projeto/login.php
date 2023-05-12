@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar</title>
+    <title>Solar - Login</title>
     <link rel="stylesheet" type="text/css" href="style_login.css"/>
 </head>
 <body>
@@ -17,7 +17,10 @@
             <input type="password" name="senha" placeholder="Senha">
             <br><br>
             <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+            <br><br>
+            <a href="registro.php" style="color: white;">Registro</a>
         </form>
     </div>
+    
 </body>
 </html>
