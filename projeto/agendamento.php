@@ -108,7 +108,7 @@
                     $result = $conexao->query($sql);
                     echo "<select name='idCliente_FK'>";
                     while($user_data = mysqli_fetch_assoc($result)){
-                    echo "<option value='".$user_data["idCliente"]."'>".$user_data["idCliente"]." - ".$user_data["nome"]."</option>";
+                    echo "<option value='".$user_data["idCliente"]."'>"."Nº Cliente - ".$user_data["idCliente"]." - ".$user_data["nome"]."</option>";
                     }
                     echo "</select>";
                 ?>
@@ -137,6 +137,19 @@
                     </select>
                 </div>
                 <br><br>
+                <?php
+                    include_once('conex.php');
+
+                    $sql = "SELECT * FROM  instalacao "; 
+    
+                    $result = $conexao->query($sql);
+                    echo "<select>";
+                    while($user_data = mysqli_fetch_assoc($result)){
+                    echo "<option>"." Nº Cliente - ".$user_data["idCliente_FK"]." - ".$user_data["data_Agend"]." - ".$user_data["horaInicio"]." - ".$user_data["horaFim"]." - ".$user_data["status_Inst"]."</option>";
+                    }
+                    echo "</select>";
+                ?>
+                <br><br><br>
                 <input type="submit" name="submit" id="submit">
                 <button type="reset">Limpar</button>
                 

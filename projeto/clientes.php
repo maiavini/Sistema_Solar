@@ -39,12 +39,6 @@
         $result = mysqli_query($conexao, "INSERT INTO cliente(nome,cpf,telefone,rua,numero,complemento,cep,idCidade_FK) 
         VALUES ('$nome','$cpf','$telefone','$rua','$numero','$complemento','$cep','$idCidade_FK')");
 
-        //if ($conexao->query($result) === TRUE) {
-            //echo "Registro criado";
-        //}else {
-            //echo "Erro: " . $result . "<br>" . $conexao->error;
-        //}
-
        
     }
     

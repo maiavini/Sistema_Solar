@@ -1,20 +1,25 @@
 <?
    
+   include_once('conex.php');
    
    if(isset($_POST['submit']))
    {
 
-        include_once('conex.php');
+    
 
-       $nome = $_POST['nome'];
-       $email = $_POST['email'];
-       $senha = $_POST['senha'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-       $result = mysqli_query($conexao, "INSERT INTO usuario(nome,email,senha) 
-       VALUES ('$nome','$email','$senha')");
+    $result = mysqli_query($conexao, "INSERT INTO usuario(nome,email,senha) 
+    VALUES ('$nome','$email','$senha')");
 
    }
    
+
+   
+
+
 ?>
 
 
@@ -32,11 +37,14 @@
     <div>
         <h1>Registro</h1>
         <form action="registro.php" method="POST">
-            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="nome" id="nome" placeholder="Nome">
+            <label for="nome"></label>
             <br><br>
-            <input type="text" name="email" placeholder="Email" >
+            <input type="text" name="email" id="email" placeholder="Email" >
+            <label for="email"></label>
             <br><br>
-            <input type="text" name="senha" placeholder="Senha">
+            <input type="text" name="senha" id="senha" placeholder="Senha">
+            <label for="senha"></label>
             <br><br>
             <input class="inputSubmit" type="submit" name="submit" value="Enviar">
         </form>
