@@ -37,6 +37,21 @@
          
     }
 
+    if(isset($_POST['deleteAgendamento']))
+    
+    {
+        $idInstal = $_POST['idInstal'];
+
+        $sqlSelect = "DELETE FROM instalacao WHERE idInstal=$idInstal";
+
+        $result = $conexao->query($sqlSelect);
+         
+    }
+
+    
+
+
+
 ?>
 
 
@@ -115,21 +130,21 @@
                 
                 <br><br>
                 <div class="inputbox">
-                    <input type="date" name="data_Agend" id="data_Agend" class="inputUser" required>
+                    <input type="date" name="data_Agend" id="data_Agend" class="inputUser" >
                     <label for="data_Agend" class="inputLabel"></label>
                 </div>
                 <br>
                 <div class="inputbox">
                 <b>Início</b>    
-                    <input type="time" name="horaInicio" id="horaInicio" class="inputUser" required>
+                    <input type="time" name="horaInicio" id="horaInicio" class="inputUser" >
                     <label for="horaInicio" class="inputLabel"></label>
                 <b>Fim</b>
-                    <input type="time" name="horaFim" id="horaFim" class="inputUser" required>
+                    <input type="time" name="horaFim" id="horaFim" class="inputUser" >
                     <label for="horaFim" class="inputLabel"></label>
                 </div>
                 <br>
                 <div>
-                    <select name="status_Inst" required>
+                    <select name="status_Inst" >
                         <option value="">Status</option>
                         <option value="pendente" >Pendente</option>
                         <option value="concluida">Concluída</option>
@@ -143,15 +158,17 @@
                     $sql = "SELECT * FROM  instalacao "; 
     
                     $result = $conexao->query($sql);
-                    echo "<select>";
+                    echo "<select name='idInstal'>";
                     while($user_data = mysqli_fetch_assoc($result)){
-                    echo "<option>"." Nº Cliente - ".$user_data["idCliente_FK"]." - ".$user_data["data_Agend"]." - ".$user_data["horaInicio"]." - ".$user_data["horaFim"]." - ".$user_data["status_Inst"]."</option>";
+                    echo "<option value='".$user_data["idInstal"]."'>"." Nº Cliente - ".$user_data["idCliente_FK"]." - ".$user_data["data_Agend"]." - ".$user_data["horaInicio"]." - ".$user_data["horaFim"]." - ".$user_data["status_Inst"]."</option>";
                     }
                     echo "</select>";
                 ?>
                 <br><br><br>
                 <input type="submit" name="submit" id="submit">
                 <button type="reset">Limpar</button>
+                <input type="submit" name="deleteAgendamento" id="submit" value="Deletar Agend.">
+                
                 
             </fieldset>
         </form>

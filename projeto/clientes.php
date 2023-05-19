@@ -41,6 +41,19 @@
 
        
     }
+
+    if(isset($_POST['deleteCliente']))
+    
+    {
+        $idCliente = $_POST['idCliente'];
+
+        echo "<script>alert('Atenção! Para deletar um clienete deve anteriormente excluir seus agendamentos.');</script>";
+        
+        $sqlSelect = "DELETE FROM cliente WHERE idCliente=$idCliente";
+
+        $result = $conexao->query($sqlSelect);
+         
+    }
     
 ?>
 
@@ -106,31 +119,31 @@
                 <legend><b>Clientes</b></legend>
                 <br>
                 <div class="inputbox">
-                <input type="text" name="nome" id="nome" class="inputUser" placeholder="Nome" required>
+                <input type="text" name="nome" id="nome" class="inputUser" placeholder="Nome" >
                 <label for="nome" class="inputLabel"></label>
                 </div>
                 <br>
                 <div class="inputbox">
-                    <input type="text" name="cpf" id="cpf" class="inputUser" placeholder="CPF" required>
+                    <input type="text" name="cpf" id="cpf" class="inputUser" placeholder="CPF" >
                     <label for="cpf" class="inputLabel"></label>
                 </div>
                 <br>
                 <div class="inputbox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" placeholder="Telefone" required>
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" placeholder="Telefone" >
                     <label for="telefone" class="inputLabel"></label>
                 </div>
                 <br>
                 <div class="inputbox">
-                    <input type="text" name="rua" id="rua" class="inputUser" placeholder="Logradouro" required>
+                    <input type="text" name="rua" id="rua" class="inputUser" placeholder="Logradouro" >
                     <label for="rua" class="inputLabel">  </label>
-                    <input type="text" name="numero" id="numero" class="inputUser" placeholder="Nº" required>
+                    <input type="text" name="numero" id="numero" class="inputUser" placeholder="Nº" >
                     <label for="numero" class="inputLabel"> </label>
                 </div>
                 <br>
                 <div class="inputbox">
                     <input type="text" name="complemento" id="complemento" class="inputUser" placeholder="Complemento">
                     <label for="complemento" class="inputLabel"></label>
-                    <input type="text" name="cep" id="cep" class="inputUser" placeholder="CEP" required>
+                    <input type="text" name="cep" id="cep" class="inputUser" placeholder="CEP" >
                     <label for="cep" class="inputLabel"></label>
                 </div>
                 <br>
@@ -146,13 +159,30 @@
                 ?>
                 
                 <br><br>
+                
+                <?php
+                    include_once('conex.php');
+
+                    $sql = "SELECT * FROM cliente"; 
+    
+                    $result = $conexao->query($sql);
+                    echo "<select name='idCliente' class='inputUser'>";
+                    while($user_data = mysqli_fetch_assoc($result)){
+                    echo "<option value='".$user_data["idCliente"]."'>"."Nº Cliente - ".$user_data["idCliente"]." - ".$user_data["nome"]."</option>";
+                    }
+                    echo "</select>";
+                ?>
+                
+                <br><br>
                 <div>
                 <input type="submit" name="submit" id="submit">
                 <button type="reset">Limpar</button>
+                <input type="submit" name="deleteCliente" id="submit" value="Deletar Cliente">
                 </div>
                 
             </fieldset>
         </form>
+
         
   
     

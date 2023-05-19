@@ -4,9 +4,7 @@
    
    if(isset($_POST['submit']))
    {
-
     
-
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -16,9 +14,6 @@
 
    }
    
-
-   
-
 
 ?>
 
@@ -46,7 +41,7 @@
             <input type="text" name="senha" id="senha" placeholder="Senha">
             <label for="senha"></label>
             <br><br>
-            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+            <input class="inputSubmit" type="submit" name="submit">
         </form>
     </div>
 </body>
