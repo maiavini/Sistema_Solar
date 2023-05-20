@@ -10,13 +10,13 @@
 <body>
     <h1 class="logo">Solar</h1>
     <div>
-        <h1>Entrar</h1>
+        <h1>Login</h1>
         <form action="testeLogin.php" method="POST">
             <input type="text" name="email" placeholder="Email" class="login_txt">
             <br><br>
             <input type="password" name="senha" placeholder="Senha">
             <br><br>
-            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+            <input class="inputSubmit" type="submit" name="submit" value="Entrar">
             <br><br>
             <a href="registro.php" style="color: white;">Registro</a>
         </form>

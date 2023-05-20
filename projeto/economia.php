@@ -148,7 +148,7 @@
                     
                     <br><br>
                     Tarifa de Energia por KWh:           
-                    <input type="text" name="preco_energia" id="preco_energia" class="inputUser" placeholder="R$"required>
+                    <input type="text" name="preco_energia" id="preco_energia" class="inputUser" placeholder= "R$"required>
                     <label for="preco_energia"></label>
                     <br><br>
                   
