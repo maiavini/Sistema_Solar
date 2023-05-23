@@ -177,7 +177,7 @@
                 <div>
                 <input type="submit" name="submit" id="submit">
                 <button type="reset">Limpar</button>
-                <input type="submit" name="deleteCliente" id="submit" value="Deletar Cliente">
+                <input type="submit" name="deleteCliente" id="submit" value="DELETAR Cliente">
                 </div>
                 
             </fieldset>

@@ -152,6 +152,20 @@
                     </select>
                 </div>
                 <br><br>
+                <b>Endereço</b>
+                <?php
+                    include_once('conex.php');
+
+                    $sql = "SELECT * FROM cliente"; 
+    
+                    $result = $conexao->query($sql);
+                    echo "<select>";
+                    while($user_data = mysqli_fetch_assoc($result)){
+                    echo "<option value='".$user_data["idCliente"]."'>"."Nº Cliente - ".$user_data["idCliente"]." - ".$user_data["rua"]." - ".$user_data["numero"]." - ".$user_data["complemento"]." - ".$user_data["cep"]."</option>";
+                    }
+                    echo "</select>";
+                ?>
+                <br><br><br>
                 <?php
                     include_once('conex.php');
 
@@ -167,7 +181,7 @@
                 <br><br><br>
                 <input type="submit" name="submit" id="submit">
                 <button type="reset">Limpar</button>
-                <input type="submit" name="deleteAgendamento" id="submit" value="Deletar Agend.">
+                <input type="submit" name="deleteAgendamento" id="submit" value="DELETAR Agend.">
                 
                 
             </fieldset>

@@ -138,41 +138,41 @@
         <form action="economia.php" method="POST">
             <fieldset>
                 <legend><b>Economia</b></legend>
-                <br><br>
+                <br>
                 <div class="formulario">
                     
-                    Consumo Médio
+                    <b>Consumo Médio:</b><p>
                     <input type="text" name="consumo_med" id="consumo_med" class="inputUser" placeholder="KWh"required>
                     <label for="consumo_med" class="inputUser"></label>
                     
                     
                     <br><br>
-                    Tarifa de Energia por KWh:           
+                    <b>Tarifa de Energia por KWh:</b><p>         
                     <input type="text" name="preco_energia" id="preco_energia" class="inputUser" placeholder= "R$"required>
                     <label for="preco_energia"></label>
                     <br><br>
                   
-                    Capacidade de Produção Solar:   
+                    <b>Capacidade de Produção Solar:</b><p>   
                     <input type="text" name="capacidade_solar" id="capacidade_solar" class="inputUser" placeholder="KWh"required>
                     <label for="capacidade_solar"></label>
                     <br><br>
                     
-                    Instalação:
+                    <b>Instalação:</b><p>
                     <input type="text" name="preco_instal" id="preco_instal" class="inputUser" placeholder="R$"required>
                     <label for="preco_instal" ></label>
                     <br><br>
                     
-                    Custo de Disponibilidade:
+                    <b>Custo de Disponibilidade:</b><p>
                     <input type="text" name="custo_disp" id="custo_disp" class="inputUser" placeholder="R$"required>
                     <label for="custo_disp"></label>
                     <br><br>
                        
-                    Impostos:
+                    <b>Impostos:</b><p>
                     <input type="text" name="imposto" id="imposto" class="inputUser" placeholder="R$"required>
                     <label for="imposto"></label>
                     <br><br>
                        
-                    Taxa Iluminiação Pública:
+                    <b>Taxa Iluminiação Pública:</b><p>
                     <input type="text" name="tx_iluminacao" id="tx_iluminacao" class="inputUser" placeholder="R$"required>
                     <label for="tx_iluminacao"></label>
                     
