@@ -27,6 +27,7 @@
     <link  rel="stylesheet" type="text/css" href="style_login.css" >
 </head>
 <body>
+    <h1 class="logo">Solar</h1>
     <a href="login.php" style="color: white">Voltar</a>
     <div class="box">
         <form action="registro.php" method="POST">

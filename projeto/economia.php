@@ -44,9 +44,9 @@
 // Calculando o custo mensal com energia solar
     $preco_solar = $preco_instalacao / (25 * 12) + ($consumo_medio - $capacidade_solar) * $preco_energia;
 
-    $tarifa_fiob = $preco_energia * 0.28;
+    $tarifa_fiob = $preco_energia * 0.28; // Fio B reoresenta 28% da tarifa de energia
 
-    $valor_fiob = $tarifa_fiob * $consumo_medio;
+    $valor_fiob = ($tarifa_fiob * 0.15) * $consumo_medio; // 15% valor sobre o FIO B, segundo a lei 14.300/2023
 
     if($valor_fiob >= $custo_disp){
 
